@@ -2,10 +2,8 @@
 using Moq;
 using SamSmithnNZ.Tests;
 using SamSmithNZ.Service.Controllers.GuitarTab;
-using SamSmithNZ.Service.Controllers.WorldCup;
 using SamSmithNZ.Service.DataAccess.GuitarTab;
 using SamSmithNZ.Service.DataAccess.GuitarTab.Interfaces;
-using SamSmithNZ.Service.DataAccess.WorldCup.Interfaces;
 using SamSmithNZ.Service.Models.GuitarTab;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -48,7 +46,7 @@ namespace SamSmithNZ.Tests.GuitarTab
         }
 
         [TestMethod()]
-        public async Task AlbumsTCATSTest()
+        public async Task AlbumsTCATSListTest()
         {
             //arrange
             AlbumController controller = new(new AlbumDataAccess(base.Configuration));
@@ -116,6 +114,7 @@ namespace SamSmithNZ.Tests.GuitarTab
             item.ArtistName = artistName;
             item.IsBassTab = item.IsBassTab;
             item.IsLeadArtist = item.IsLeadArtist;
+            //item.AverageRating = 2;
             await controller.SaveAlbum(item);
 
             //reload
